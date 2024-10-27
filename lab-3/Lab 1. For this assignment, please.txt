@@ -1,0 +1,29 @@
+Lab 1. For this assignment, please use the same tables created in your previous lab session. 
+
+Task 1: Update the Student table with the following information: 
+
+Change the email to 'jane_Smith@example.com' 
+
+Where FirstName is 'Jane' and LastName is 'Smith'; 
+
+Task 2: Delete record from the Student table on following condition: 
+
+Delete student/students records from the Student table where last name is Smith. 
+
+Task 3: List the student whose first name starts with J. 
+
+Submission: Create an SQL script file containing your solutions for all tasks (queries). Name the file "lab_assignment1.sql" Provide comments above each query to indicate the task number and the query's purpose
+
+-- Lab 1: Task 1 - Update the email of student 'Jane Smith'
+UPDATE Student
+SET email = 'jane_Smith@example.com'
+WHERE FirstName = 'Jane' AND LastName = 'Smith';
+
+-- Lab 1: Task 2 - Delete records of students whose last name is 'Smith'
+DELETE FROM Student
+WHERE LastName = 'Smith';
+
+-- Lab 1: Task 3 - List students whose first name starts with 'J'
+SELECT *
+FROM Student
+WHERE FirstName LIKE 'J%';

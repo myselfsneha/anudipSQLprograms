@@ -1,0 +1,28 @@
+Database Schema: Use the same database scheme created in previous lab. 
+
+Assignment 1: 
+
+Task1: Assume you are managing a database of student records, and you need to retrieve information about students born after June 16, 2009. What will be the sql query for this? 
+
+Task2: Assume you have a database containing a "Student" table with information about students, including their first names. You want to retrieve records of students whose first names start with either 'A' or 'J'. To achieve this,what will be your sql query? 
+
+Task 3 .Let's consider a scenario where you have a database with a "Student" table that contains information about students, including their first names and email addresses. You want to retrieve records of students whose first name is not 'Alice' and whose email addresses contain the domain '@example.com'. To achieve this, what will be your sql query?
+
+ Submission: Create an SQL script file containing your solutions for all tasks (queries). Name the file "lab_assignment1.sql" Provide comments above each query to indicate the query's purpose.
+
+
+-- Assignment 1: Task 1 - Retrieve students born after June 16, 2009
+SELECT *
+FROM Student
+WHERE birth_date > '2009-06-16';
+
+-- Assignment 1: Task 2 - Retrieve records of students whose first names start with either 'A' or 'J'
+SELECT *
+FROM Student
+WHERE FirstName LIKE 'A%' OR FirstName LIKE 'J%';
+
+-- Assignment 1: Task 3 - Retrieve records of students whose first name is not 'Alice' 
+-- and whose email addresses contain the domain '@example.com'
+SELECT *
+FROM Student
+WHERE FirstName != 'Alice' AND email LIKE '%@example.com';

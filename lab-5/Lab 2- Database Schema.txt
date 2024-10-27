@@ -1,0 +1,29 @@
+Lab 2- Database Schema: 
+
+Use the same database scheme created in Previous Lab. 
+
+Task: Let's consider a scenario where you want to count the number of students based on their gender from a database table named Student. 
+
+Hint: use GroupBy clause and Count() function 
+
+Submission: Create an SQL script file containing your solutions for the task. Name the file "lab_assignment2.sql" Provide comments above the query to indicate the query's purpose.
+
+
+
+ChatGPT  Exercise Using ChatGPT generates SQL queries of the below problem . 
+
+Scenario 1:Library Books Given a table called books with columns book_id, title, and author_id, write a query to count the number of books written by each author, ordering the results by the author's name without using a join clause.
+
+
+-- Lab 2: Count the number of students based on their gender
+SELECT gender, COUNT(*) AS gender_count
+FROM Student
+GROUP BY gender;
+
+
+
+-- Scenario 1: Count the number of books written by each author, ordered by author_id
+SELECT author_id, COUNT(*) AS book_count
+FROM books
+GROUP BY author_id
+ORDER BY author_id ASC;

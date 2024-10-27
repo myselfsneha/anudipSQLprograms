@@ -1,0 +1,146 @@
+Lab 1. Create a Database & Table Using MySQL Command-Line Client. 
+
+● Create a database with the name StudentManagementSystem.
+
+ Create a table with named Student with attributes:
+
+ ● StudentID (Primary Key) 
+
+● FirstName 
+
+● LastName 
+
+● DateOfBirth
+
+ ● Gender 
+
+● Email 
+
+● Phone
+
+
+
+ Create a table with name Course with attributes: 
+
+● CourseID (Primary Key) 
+
+● CourseTitle 
+
+● Credits 
+
+Create a table with named Instructor with attributes: 
+
+● InstructorID (Primary Key) 
+
+● FirstName 
+
+● LastName 
+
+● Email 
+
+
+
+Create a table with named Enrollment with attributes: 
+
+● EnrollmentID (Primary Key) 
+
+● EnrollmentDate 
+
+● StudentID(Foreign key) 
+
+● CourseID(Foreign Key) 
+
+● InstructorID(Foreign key) 
+
+
+
+Create a table with named Score with attributes: 
+
+● ScoreID (Primary Key) 
+
+● CourseID (Foreign key) 
+
+● StudentID (Foreign Key) 
+
+● DateOfExam 
+
+● CreditObtained 
+
+
+
+Create a table with named Feedback with attributes: 
+
+● FeedbackID (Primary Key) 
+
+● StudentID (Foreign key) 
+
+● Date 
+
+● InstructorName 
+
+● Feedback
+
+-- Create the database
+CREATE DATABASE StudentManagementSystem;
+
+-- Use the newly created database
+USE StudentManagementSystem;
+
+-- Create the Student table
+CREATE TABLE Student (
+    StudentID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DateOfBirth DATE NOT NULL,
+    Gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Phone VARCHAR(15) NOT NULL
+);
+
+-- Create the Course table
+CREATE TABLE Course (
+    CourseID INT AUTO_INCREMENT PRIMARY KEY,
+    CourseTitle VARCHAR(100) NOT NULL,
+    Credits INT NOT NULL
+);
+
+-- Create the Instructor table
+CREATE TABLE Instructor (
+    InstructorID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- Create the Enrollment table
+CREATE TABLE Enrollment (
+    EnrollmentID INT AUTO_INCREMENT PRIMARY KEY,
+    EnrollmentDate DATE NOT NULL,
+    StudentID INT,
+    CourseID INT,
+    InstructorID INT,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID),
+    FOREIGN KEY (InstructorID) REFERENCES Instructor(InstructorID)
+);
+
+-- Create the Score table
+CREATE TABLE Score (
+    ScoreID INT AUTO_INCREMENT PRIMARY KEY,
+    CourseID INT,
+    StudentID INT,
+    DateOfExam DATE NOT NULL,
+    CreditObtained INT NOT NULL,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
+);
+
+-- Create the Feedback table
+CREATE TABLE Feedback (
+    FeedbackID INT AUTO_INCREMENT PRIMARY KEY,
+    StudentID INT,
+    Date DATE NOT NULL,
+    InstructorName VARCHAR(100) NOT NULL,
+    Feedback TEXT NOT NULL,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
+);

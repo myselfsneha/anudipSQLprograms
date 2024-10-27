@@ -1,0 +1,28 @@
+Lab 1: Database Schema 
+
+Already we have created an Employee table in day 2 lab,let’s utilize this. 
+
+Task: Add two more columns in the Employee table named Salary and department and add data into it. Now Imagine you work for a company with various departments, and there is a need to analyze employee salaries within the IT department.Write a query to retrieve all employees from the "employee" table who have a salary greater than 50000 and are in the 'IT' department 
+
+Hint: Use AND operator to retrieve details. 
+
+Submission: Create an SQL script file containing your solutions for the task. Name the file "lab_assignment1.sql" Provide comments above the query to indicate the query's purpose.
+
+
+
+-- Lab 1: Task - Add 'Salary' and 'Department' columns to the Employee table
+ALTER TABLE Employee
+ADD Salary DECIMAL(10, 2),
+    Department VARCHAR(50);
+
+-- Lab 1: Task - Insert sample data into Employee table with Salary and Department columns
+INSERT INTO Employee (emp_id, first_name, last_name, age, email, Salary, Department)
+VALUES (1, 'John', 'Doe', 28, 'johndoe@example.com', 60000, 'IT'),
+       (2, 'Alice', 'Johnson', 35, 'alicej@example.com', 55000, 'IT'),
+       (3, 'Bob', 'Smith', 40, 'bobsmith@example.com', 45000, 'HR'),
+       (4, 'Carol', 'White', 30, 'carolw@example.com', 52000, 'Finance');
+
+-- Lab 1: Task - Retrieve employees in the IT department with a salary greater than 50,000
+SELECT *
+FROM Employee
+WHERE Salary > 50000 AND Department = 'IT';

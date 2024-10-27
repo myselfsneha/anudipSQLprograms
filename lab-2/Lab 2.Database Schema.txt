@@ -1,0 +1,31 @@
+Lab 2.Database Schema: 
+
+Consider a simple database with one tables: Employee
+
+Employee Table: ● Columns: emp_id (Primary Key), first_name, last_name, age, email 
+
+Task 1: Insert Data Write an SQL INSERT statement to insert data into the Employee table
+
+Task 2: Retrieving Data Write an SQL SELECT statement to retrieve the first_name and last_name of all employees from the Employee table.
+
+Task 3: Filtering Data Write an SQL SELECT statement to retrieve the first_name, last_name, and age of employees who are older than 30 years.
+
+Task 4: Updating Data Write an SQL UPDATE statement to increase the age of employees by 1 year for all employees older than 25.
+
+-- Lab 2: Task 1 - Insert data into the Employee table
+INSERT INTO Employee (emp_id, first_name, last_name, age, email)
+VALUES (1, 'John', 'Doe', 28, 'johndoe@example.com');
+
+-- Lab 2: Task 2 - Retrieve the first and last name of all employees
+SELECT first_name, last_name
+FROM Employee;
+
+-- Lab 2: Task 3 - Retrieve first name, last name, and age of employees older than 30
+SELECT first_name, last_name, age
+FROM Employee
+WHERE age > 30;
+
+-- Lab 2: Task 4 - Increase age by 1 for all employees older than 25
+UPDATE Employee
+SET age = age + 1
+WHERE age > 25;

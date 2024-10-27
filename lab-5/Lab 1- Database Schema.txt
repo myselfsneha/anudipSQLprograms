@@ -1,0 +1,16 @@
+Lab 1- Database Schema: 
+
+Use the same database scheme created in Previous Lab. 
+
+Task: Let's consider a scenario where you want to retrieve information about students from a database table named student and display the results in ascending order based on their last names. 
+
+Hint: Use orderBy clause in a ascending Order 
+
+Submission: Create an SQL script file containing your solutions for the task. Name the file "lab_assignment1.sql" Provide comments above the query to indicate the query's purpose.
+
+
+
+-- Lab 1: Retrieve student information in ascending order based on last names
+SELECT *
+FROM Student
+ORDER BY LastName ASC;
